@@ -1,1 +1,0 @@
-# todo-relay-sequelize
