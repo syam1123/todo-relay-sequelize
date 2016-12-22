@@ -2,12 +2,13 @@ import 'babel-polyfill';
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Route,Router} from 'react-router'
+import {Route,Router,IndexRoute} from 'react-router'
 import Relay from 'react-relay'
 import {applyRouterMiddleware,browserHistory} from 'react-router'
 import useRelay from 'react-router-relay';
 
 import TodoApp from './components/TodoApp'
+import TodoList from './components/TodoList'
 
 //Creating base query which would we passed as queries prop to child components
 const viewerQueries = {
@@ -27,6 +28,11 @@ ReactDOM.render(
         component={TodoApp}
         //Step 3: Passing query down to the components
         queries = {viewerQueries}>
+        <IndexRoute
+          component={TodoList}
+          queries={viewerQueries}/>
+          //Passing additional parameters required to the relay container
+          {/*prepareParams={()=>({status:'any'})}/>*/}
       </Route>
     </Router>,
     mountNode

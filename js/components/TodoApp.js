@@ -4,7 +4,7 @@ import Relay from 'react-relay';
 class TodoApp extends Component{
   render(){
     return(
-      <div>hello</div>
+      this.props.children
     )
  }
 }
